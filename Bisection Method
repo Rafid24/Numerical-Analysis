@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+float func(float x);
+float bisection_method(float a, float b, float n);
+ 
+int main()
+{
+    float a,b,n;
+    cin>>a>>b>>n;
+    float x=bisection_method(a,b,n);
+    return 0;
+}
+ 
+ 
+float func(float x)
+{
+    return pow(x,3)-x-11;
+ 
+}
+ 
+float bisection_method(float a, float b, float n)
+{
+    float x,z;
+    for(int i=0;i<=n;i++)
+    {
+        x=(a+b)/2;
+        cout << fixed;
+        cout << setprecision(7);
+        cout<<"X"<<i<<"= "<<x<<endl;
+        z=func(x);
+        cout<<"Value of Function x^3-x-11 : "<<z<<endl<<endl;
+        if(z>0)
+            b=x;
+        else
+            a=x;
+    }
+    return x;
+}
